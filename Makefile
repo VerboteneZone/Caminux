@@ -234,9 +234,10 @@ $(ABS_BUILD)/$(BINUTILS_NAME):
 	mkdir -p $(ABS_BUILD)/$(BINUTILS_NAME)
 
 $(ABS_BUILD)/$(BINUTILS_NAME)/.patch:
+	cd $(ABS_SOURCES)/$(BINUTILS_NAME); \
+	find $(ABS_PATCH)/$(BINUTILS_NAME) -name "*.patch" -exec patch -p1 \< \{\} \;
 	cd $(ABS_PATCH)/$(BINUTILS_NAME); \
 	find -type f -name "*.sh" -exec sh \{\} $(ABS_SOURCES)/$(BINUTILS_NAME) $(ABS_BUILD)/$(BINUTILS_NAME) $(TOOLS) $(TARGET) \;
-	find -type f -name "*.patch" -exec cd $(ABS_SOURCES)/$(BINUTILS_NAME); patch -p1 < \{\} \;
 	touch $(ABS_BUILD)/$(BINUTILS_NAME)/.patch	
 
 $(ABS_BUILD)/$(BINUTILS_NAME)/Makefile:
@@ -266,9 +267,10 @@ $(ABS_BUILD)/$(GCC_NAME):
 	mkdir -p $(ABS_BUILD)/$(GCC_NAME)
 
 $(ABS_BUILD)/$(GCC_NAME)/.patch:
+	cd $(ABS_SOURCES)/$(GCC_NAME); \
+	find $(ABS_PATCH)/$(GCC_NAME) -name "*.patch" -exec patch -p1 \< \{\} \;
 	cd $(ABS_PATCH)/$(GCC_NAME); \
 	find -type f -name "*.sh" -exec sh \{\} $(ABS_SOURCES)/$(GCC_NAME) $(ABS_BUILD)/$(GCC_NAME) $(TOOLS) $(TARGET) \;
-	find -type f -name "*.patch" -exec cd $(ABS_SOURCES)/$(GCC_NAME); patch -p1 < \{\} \;
 	touch $(ABS_BUILD)/$(GCC_NAME)/.patch	
 
 $(ABS_BUILD)/$(GCC_NAME)/Makefile:
@@ -306,9 +308,10 @@ $(ABS_BUILD)/headers-$(KERNEL_NAME):
 	mkdir $(ABS_BUILD)/headers-$(KERNEL_NAME)
 	
 $(ABS_BUILD)/$(KERNEL_NAME)/.patch:
+	cd $(ABS_SOURCES)/$(KERNEL_NAME); \
+	find $(ABS_PATCH)/$(KERNEL_NAME) -name "*.patch" -exec patch -p1 \< \{\} \;
 	cd $(ABS_PATCH)/$(KERNEL_NAME); \
 	find -type f -name "*.sh" -exec sh \{\} $(ABS_SOURCES)/$(KERNEL_NAME) $(ABS_BUILD)/$(KERNEL_NAME) $(TOOLS) $(TARGET) \;
-	find -type f -name "*.patch" -exec cd $(ABS_SOURCES)/$(KERNEL_NAME); patch -p1 < \{\} \;
 	touch $(ABS_BUILD)/$(KERNEL_NAME)/.patch
 
 $(ABS_BUILD)/$(KERNEL_NAME)/.mrproper:
@@ -338,9 +341,10 @@ $(ABS_BUILD)/$(GLIBC_NAME):
 	mkdir -p $(ABS_BUILD)/$(GLIBC_NAME)
 
 $(ABS_BUILD)/$(GLIBC_NAME)/.patch:
+	cd $(ABS_SOURCES)/$(GLIBC_NAME); \
+	find $(ABS_PATCH)/$(GLIBC_NAME) -name "*.patch" -exec patch -p1 \< \{\} \;
 	cd $(ABS_PATCH)/$(GLIBC_NAME); \
 	find -type f -name "*.sh" -exec sh \{\} $(ABS_SOURCES)/$(GLIBC_NAME) $(ABS_BUILD)/$(GLIBC_NAME) $(TOOLS) $(TARGET) \;
-	find -type f -name "*.patch" -exec cd $(ABS_SOURCES)/$(GLIBC_NAME); patch -p1 < \{\} \;
 	touch $(ABS_BUILD)/$(GLIBC_NAME)/.patch
 
 $(ABS_BUILD)/$(GLIBC_NAME)/Makefile:
@@ -412,9 +416,10 @@ $(ABS_BUILD)/$(BINUTILS_NAME)-stage2:
 	mkdir -p $(ABS_BUILD)/$(BINUTILS_NAME)-stage2
 
 $(ABS_BUILD)/$(BINUTILS_NAME)-stage2/.patch:
+	cd $(ABS_SOURCES)/$(BINUTILS_NAME); \
+	find $(ABS_PATCH)/$(BINUTILS_NAME)-stage2 -name "*.patch" -exec patch -p1 \< \{\} \;
 	cd $(ABS_PATCH)/$(BINUTILS_NAME)-stage2; \
 	find -type f -name "*.sh" -exec sh \{\} $(ABS_SOURCES)/$(BINUTILS_NAME) $(ABS_BUILD)/$(BINUTILS_NAME)-stage2 $(TOOLS) $(TARGET) \;
-	find -type f -name "*.patch" -exec cd $(ABS_SOURCES)/$(BINUTILS_NAME); patch -p1 < \{\} \;
 	touch $(ABS_BUILD)/$(BINUTILS_NAME)-stage2/.patch	
 
 $(ABS_BUILD)/$(BINUTILS_NAME)-stage2/Makefile:
@@ -456,9 +461,10 @@ $(ABS_BUILD)/$(GCC_NAME)-stage2:
 	mkdir -p $(ABS_BUILD)/$(GCC_NAME)-stage2
 
 $(ABS_BUILD)/$(GCC_NAME)-stage2/.patch:
+	cd $(ABS_SOURCES)/$(GCC_NAME); \
+	find $(ABS_PATCH)/$(GCC_NAME)-stage2 -name "*.patch" -exec patch -p1 \< \{\} \;
 	cd $(ABS_PATCH)/$(GCC_NAME)-stage2; \
 	find -type f -name "*.sh" -exec sh \{\} $(ABS_SOURCES)/$(GCC_NAME) $(ABS_BUILD)/$(GCC_NAME)-stage2 $(TOOLS) $(TARGET) \;
-	find -type f -name "*.patch" -exec cd $(ABS_SOURCES)/$(GCC_NAME); patch -p1 < \{\} \;
 	touch $(ABS_BUILD)/$(GCC_NAME)-stage2/.patch	
 
 $(ABS_BUILD)/$(GCC_NAME)-stage2/Makefile:
