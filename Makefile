@@ -117,7 +117,7 @@ check-path: $(TOOLS)
 
 $(TOOLS):
 	@echo "$(TOOLS) doesnt exist! Please create a symlink:"
-	@echo "ln -vs $(ABS_TOOLS) $(TOOLS)"
+	@echo "mkdir $(ABS_TOOLS); ln -vs $(ABS_TOOLS) $(TOOLS)"
 	@exit 1
 
 
